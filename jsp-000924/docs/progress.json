@@ -1,0 +1,232 @@
+{
+  "project": "JSP-000924 Izotov fourth-power family",
+  "status": "VERIFIED",
+  "scope": "All-natural t,n compositeness of the explicit fourth-power family, then infinitely many distinct positive odd fourth-power Sierpinski numbers. No assertion about absence of a finite prime cover.",
+  "tasks": [
+    {
+      "id": "S00",
+      "title": "Freeze the exact statement and source contract",
+      "depends_on": [],
+      "status": "REVIEWED",
+      "owned_outputs": [
+        "docs/statement-contract.md",
+        "docs/sources.md"
+      ],
+      "exports": []
+    },
+    {
+      "id": "S01",
+      "title": "Establish the independent pinned environment",
+      "depends_on": [
+        "S00"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        ".gitignore",
+        "lean-toolchain",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "JSP924/EnvironmentCheck.lean",
+        "scripts/env.sh",
+        "docs/environment.md",
+        "docs/api-inventory.md"
+      ],
+      "exports": []
+    },
+    {
+      "id": "D00",
+      "title": "Define the family and elementary bounds",
+      "depends_on": [
+        "S01"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Basic.lean"
+      ],
+      "exports": [
+        "JSP924.step_eq_product",
+        "JSP924.seed_le_root",
+        "JSP924.root_gt_one",
+        "JSP924.root_odd",
+        "JSP924.seed_lt_value"
+      ]
+    },
+    {
+      "id": "B01",
+      "title": "Prove proper-factor and nonprime bridges",
+      "depends_on": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Composite.lean"
+      ],
+      "exports": [
+        "JSP924.composite_mul",
+        "JSP924.composite_not_prime"
+      ]
+    },
+    {
+      "id": "C01",
+      "title": "Verify the six fixed divisor data rows",
+      "depends_on": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Cover/Data.lean"
+      ],
+      "exports": [
+        "JSP924.cover_data"
+      ]
+    },
+    {
+      "id": "C02",
+      "title": "Verify the finite residue certificate",
+      "depends_on": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Cover/FiniteCertificate.lean"
+      ],
+      "exports": [
+        "JSP924.finite_cover"
+      ]
+    },
+    {
+      "id": "C03",
+      "title": "Lift periodic congruences to all parameters",
+      "depends_on": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Cover/Lift.lean"
+      ],
+      "exports": [
+        "JSP924.root_modEq_seed",
+        "JSP924.two_pow_mod64",
+        "JSP924.value_modEq_residue"
+      ]
+    },
+    {
+      "id": "C04",
+      "title": "Finish the covered exponent branch",
+      "depends_on": [
+        "C01",
+        "C02",
+        "C03"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Cover/Complete.lean"
+      ],
+      "exports": [
+        "JSP924.covered_composite"
+      ]
+    },
+    {
+      "id": "F01",
+      "title": "Prove Sophie Germain factorization safely over naturals",
+      "depends_on": [
+        "B01"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Factorization/SophieGermain.lean"
+      ],
+      "exports": [
+        "JSP924.sophie_identity",
+        "JSP924.sophie_composite"
+      ]
+    },
+    {
+      "id": "F02",
+      "title": "Finish the exceptional exponent branch",
+      "depends_on": [
+        "D00",
+        "F01"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Factorization/Exceptional.lean"
+      ],
+      "exports": [
+        "JSP924.exceptional_value",
+        "JSP924.exceptional_composite"
+      ]
+    },
+    {
+      "id": "I01",
+      "title": "Combine the branches for every natural exponent",
+      "depends_on": [
+        "C04",
+        "F02"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Universal.lean"
+      ],
+      "exports": [
+        "JSP924.family_value_composite",
+        "JSP924.named_witness_composite"
+      ]
+    },
+    {
+      "id": "I02",
+      "title": "Prove the Sierpinski and infinite-family conclusions",
+      "depends_on": [
+        "I01",
+        "B01"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "JSP924/Main.lean",
+        "JSP924.lean"
+      ],
+      "exports": [
+        "JSP924.family_value_not_prime",
+        "JSP924.fourth_family_injective",
+        "JSP924.family_sierpinski",
+        "JSP924.infinitely_many_fourth_power_sierpinski"
+      ]
+    },
+    {
+      "id": "V01",
+      "title": "Independently audit meaning, build and axioms",
+      "depends_on": [
+        "I02",
+        "B01"
+      ],
+      "status": "VERIFIED",
+      "owned_outputs": [
+        "Checks/Statement.lean",
+        "Checks/Axioms.lean",
+        "Checks/axiom-targets.txt",
+        "Checks/BoundaryCases.lean",
+        "scripts/check_axioms.py",
+        "scripts/verify.sh",
+        "docs/final-verification.md",
+        "docs/evidence/"
+      ],
+      "exports": [
+        "JSP924Checks.expanded_family_composite",
+        "JSP924Checks.expanded_infinite_family",
+        "JSP924Checks.parameter_zero",
+        "JSP924Checks.exponent_zero_witness",
+        "JSP924Checks.exponent_two",
+        "JSP924Checks.sophie_at_one_prime",
+        "JSP924Checks.sophie_at_one_not_composite",
+        "JSP924Checks.covered_residue_count",
+        "JSP924Checks.exceptional_residue_count"
+      ]
+    }
+  ],
+  "publication_verification": {
+    "normal": "docs/evidence/normal/verification.json",
+    "clean": "docs/evidence/clean/verification.json",
+    "report": "docs/final-verification.md",
+    "checks": "docs/evidence/publication-checks.json"
+  }
+}

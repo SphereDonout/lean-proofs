@@ -1,0 +1,68 @@
+ℹ [912/928] Built JSP924.EnvironmentCheck (1.3s)
+info: JSP924/EnvironmentCheck.lean:12:0: Nat.ModEq.pow {n a b : ℕ} (m : ℕ) (h : a ≡ b [MOD n]) : a ^ m ≡ b ^ m [MOD n]
+info: JSP924/EnvironmentCheck.lean:13:0: Nat.ModEq.modulus_mul_add {m a b : ℕ} : m * a + b ≡ b [MOD m]
+info: JSP924/EnvironmentCheck.lean:14:0: Nat.mod_add_div (m k : ℕ) : m % k + k * (m / k) = m
+info: JSP924/EnvironmentCheck.lean:15:0: Nat.not_prime_of_dvd_of_lt {m n : ℕ} (h1 : m ∣ n) (h2 : 2 ≤ m) (h3 : m < n) : ¬Nat.Prime n
+info: JSP924/EnvironmentCheck.lean:16:0: Nat.pow_left_injective {n : ℕ} (hn : n ≠ 0) : Function.Injective fun a => a ^ n
+info: JSP924/EnvironmentCheck.lean:17:0: Nat.le_self_pow {n : ℕ} (hn : n ≠ 0) (a : ℕ) : a ≤ a ^ n
+info: JSP924/EnvironmentCheck.lean:18:0: Nat.one_le_pow (n m : ℕ) (h : 0 < m) : 1 ≤ m ^ n
+info: JSP924/EnvironmentCheck.lean:19:0: Set.infinite_of_injective_forall_mem.{u, v} {α : Type u} {β : Type v} [Infinite α] {s : Set β} {f : α → β}
+  (hi : Function.Injective f) (hf : ∀ (x : α), f x ∈ s) : s.Infinite
+✔ [913/928] Built JSP924.Basic (1.4s)
+✔ [914/928] Built JSP924.Cover.Data (1.3s)
+✔ [915/928] Built JSP924.Cover.Lift (1.3s)
+✔ [916/928] Built JSP924.Composite (1.3s)
+✔ [917/928] Built JSP924.Factorization.SophieGermain (1.0s)
+✔ [918/928] Built JSP924.Cover.FiniteCertificate (2.7s)
+✔ [919/928] Built JSP924.Factorization.Exceptional (955ms)
+✔ [920/928] Built JSP924.Cover.Complete (893ms)
+✔ [921/928] Built JSP924.Universal (872ms)
+✔ [922/928] Built JSP924.Main (856ms)
+✔ [923/928] Built JSP924 (800ms)
+✔ [925/928] Built Checks.Statement (1.1s)
+✔ [926/928] Built Checks.BoundaryCases (1.1s)
+ℹ [927/928] Built Checks.Axioms (865ms)
+info: Checks/Axioms.lean:9:0: JSP924.family_value_composite : ∀ (t n : ℕ), JSP924.Composite (JSP924.value t n)
+info: Checks/Axioms.lean:10:0: JSP924.family_value_not_prime : ∀ (t n : ℕ), ¬Nat.Prime (JSP924.value t n)
+info: Checks/Axioms.lean:11:0: JSP924.family_sierpinski : ∀ (t : ℕ), JSP924.Sierpinski (JSP924.root t ^ 4)
+info: Checks/Axioms.lean:12:0: JSP924.infinitely_many_fourth_power_sierpinski : {k | JSP924.Sierpinski k ∧ ∃ l, k = l ^ 4}.Infinite
+info: Checks/Axioms.lean:13:0: JSP924Checks.expanded_family_composite : ∀ (t n : ℕ),
+  ∃ d,
+    1 < d ∧
+      d < (734110615000775 + 36893488147419103230 * t) ^ 4 * 2 ^ n + 1 ∧
+        d ∣ (734110615000775 + 36893488147419103230 * t) ^ 4 * 2 ^ n + 1
+info: Checks/Axioms.lean:14:0: JSP924Checks.expanded_infinite_family : {k |
+    0 < k ∧ Odd k ∧ (∃ l, k = l ^ 4) ∧ ∀ (n : ℕ), 0 < n → ∃ d, 1 < d ∧ d < k * 2 ^ n + 1 ∧ d ∣ k * 2 ^ n + 1}.Infinite
+info: Checks/Axioms.lean:16:0: 'JSP924.step_eq_product' depends on axioms: [propext]
+info: Checks/Axioms.lean:17:0: 'JSP924.seed_le_root' does not depend on any axioms
+info: Checks/Axioms.lean:18:0: 'JSP924.root_gt_one' depends on axioms: [propext, Quot.sound]
+info: Checks/Axioms.lean:19:0: 'JSP924.root_odd' depends on axioms: [propext, Quot.sound]
+info: Checks/Axioms.lean:20:0: 'JSP924.seed_lt_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:21:0: 'JSP924.composite_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:22:0: 'JSP924.composite_not_prime' depends on axioms: [propext, Quot.sound]
+info: Checks/Axioms.lean:23:0: 'JSP924.cover_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:24:0: 'JSP924.finite_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:25:0: 'JSP924.root_modEq_seed' depends on axioms: [propext]
+info: Checks/Axioms.lean:26:0: 'JSP924.two_pow_mod64' depends on axioms: [propext]
+info: Checks/Axioms.lean:27:0: 'JSP924.value_modEq_residue' depends on axioms: [propext]
+info: Checks/Axioms.lean:28:0: 'JSP924.covered_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:29:0: 'JSP924.sophie_identity' depends on axioms: [propext]
+info: Checks/Axioms.lean:30:0: 'JSP924.sophie_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:31:0: 'JSP924.exceptional_value' depends on axioms: [propext]
+info: Checks/Axioms.lean:32:0: 'JSP924.exceptional_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:33:0: 'JSP924.family_value_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:34:0: 'JSP924.named_witness_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:35:0: 'JSP924.family_value_not_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:36:0: 'JSP924.fourth_family_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:37:0: 'JSP924.family_sierpinski' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:38:0: 'JSP924.infinitely_many_fourth_power_sierpinski' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:39:0: 'JSP924Checks.expanded_family_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:40:0: 'JSP924Checks.expanded_infinite_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:41:0: 'JSP924Checks.parameter_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:42:0: 'JSP924Checks.exponent_zero_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:43:0: 'JSP924Checks.exponent_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:44:0: 'JSP924Checks.sophie_at_one_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:45:0: 'JSP924Checks.sophie_at_one_not_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:46:0: 'JSP924Checks.covered_residue_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:47:0: 'JSP924Checks.exceptional_residue_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (928 jobs).

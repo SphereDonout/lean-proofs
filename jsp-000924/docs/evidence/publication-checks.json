@@ -1,0 +1,44 @@
+{
+  "verification_date_utc": "2026-09-16",
+  "setup": {
+    "command": [
+      "sh",
+      "scripts/bootstrap.sh"
+    ],
+    "exit_code": 0,
+    "environment": "arm64 macOS",
+    "reused_matching_local_toolchain_and_upstream_caches": true,
+    "fresh_download_tested": false,
+    "note": "Outcome observed by the publication coordinator; this record is not a raw setup transcript."
+  },
+  "normal_and_clean_records_validated": true,
+  "commands_per_run": 25,
+  "all_recorded_command_exits_zero": true,
+  "all_recorded_log_hashes_match": true,
+  "source_identity_matches_both_runs_and_current_files": true,
+  "hashed_input_count": 26,
+  "source_identity_sha256": "b07d91e421cbe535eb75aa02447ab1123548cf1cedc73ff5fcc75b2a501c763c",
+  "source_identity_encoding": "SHA-256 of UTF-8 JSON source_sha256 map, keys sorted, separators comma and colon, no whitespace or trailing newline",
+  "original_verified_lean_sources": {
+    "compared_count": 15,
+    "all_byte_identical": true,
+    "relative_files": [
+      "Checks/Axioms.lean",
+      "Checks/BoundaryCases.lean",
+      "Checks/Statement.lean",
+      "JSP924/Basic.lean",
+      "JSP924/Composite.lean",
+      "JSP924/Cover/Complete.lean",
+      "JSP924/Cover/Data.lean",
+      "JSP924/Cover/FiniteCertificate.lean",
+      "JSP924/Cover/Lift.lean",
+      "JSP924/EnvironmentCheck.lean",
+      "JSP924/Factorization/Exceptional.lean",
+      "JSP924/Factorization/SophieGermain.lean",
+      "JSP924/Main.lean",
+      "JSP924/Universal.lean",
+      "JSP924.lean"
+    ]
+  },
+  "normalized_command_output_count": 0
+}
