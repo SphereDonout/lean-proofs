@@ -1,0 +1,628 @@
+{
+  "version": 1,
+  "created": "2026-09-16",
+  "status": "implementation and independent verification complete through V01",
+  "tasks": [
+    {
+      "id": "S00",
+      "title": "Freeze the statement and mathematical scope",
+      "prerequisites": [],
+      "status": "REVIEWED",
+      "verified_declarations": [],
+      "validation_evidence": [
+        {
+          "review": "Exact pinned upstream proposition read and compared to formal target",
+          "report": "docs/statement-contract.md"
+        }
+      ],
+      "kind": "research",
+      "actual_outputs": [
+        "docs/statement-contract.md"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "S01",
+      "title": "Pin the Lean environment and inspect real APIs",
+      "prerequisites": [
+        "S00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "environment",
+      "actual_outputs": [
+        "lean-toolchain",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "docs/environment.md",
+        "docs/api-inventory.md"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "D00",
+      "title": "Define the exact triple graph and order transport",
+      "prerequisites": [
+        "S01"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.Triple",
+        "JSP092.Up",
+        "JSP092.speckerGraph",
+        "JSP092.Triple.map_adj"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Basic.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F01",
+      "title": "Prove the four cut classes and their edge properties",
+      "prerequisites": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.cut_cases",
+        "JSP092.crossLeft_not_adj",
+        "JSP092.crossRight_not_adj",
+        "JSP092.lower_upper_not_adj"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/Cut.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F02",
+      "title": "Normalize triples inside each dyadic half",
+      "prerequisites": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.lowerTriple_adj",
+        "JSP092.upperTriple_adj"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/Halves.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F03",
+      "title": "Construct and verify the dyadic coloring",
+      "prerequisites": [
+        "F01",
+        "F02"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.dyadicColoring"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/DyadicColoring.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F04",
+      "title": "Bound and rank a finite coordinate support",
+      "prerequisites": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.coordinateSupport_card_le",
+        "JSP092.coordinateRank",
+        "JSP092.rankedTriple_adj"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/Support.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F05",
+      "title": "Color arbitrary finite vertex sets",
+      "prerequisites": [
+        "F03",
+        "F04"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.finiteDyadicColoring"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/FiniteColoring.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F06",
+      "title": "Extract a large independent color fiber",
+      "prerequisites": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.independent_fiber_card_bound"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/Pigeonhole.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "F07",
+      "title": "Assemble the integral independent-set theorem",
+      "prerequisites": [
+        "F05",
+        "F06"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.finite_independent_set"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Finite/IndependentSet.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O01",
+      "title": "Build a small carrier for countable ordinals",
+      "prerequisites": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.Omega",
+        "JSP092.cardinal_omega",
+        "JSP092.omega_sequence_bounded",
+        "JSP092.lt_omegaNext"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/Carrier.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O02",
+      "title": "Prove an unbounded countable-cover lemma",
+      "prerequisites": [
+        "D00"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.UnboundedAbove",
+        "JSP092.exists_unboundedAbove_of_countable_cover"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/CountableCover.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O03",
+      "title": "Find unbounded third-coordinate color fibers",
+      "prerequisites": [
+        "O01",
+        "O02"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.paint_mk",
+        "JSP092.exists_unbounded_thirdFiber"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/NestedFibers.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O04",
+      "title": "Find one color with unbounded first and second fibers",
+      "prerequisites": [
+        "O03"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.exists_unbounded_secondFiber",
+        "JSP092.exists_unbounded_firstFiber"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/NestedFibers.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O05",
+      "title": "Construct a monochromatic edge",
+      "prerequisites": [
+        "O04"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.exists_monochromatic_edge",
+        "JSP092.no_nat_coloring"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/NoCountableColoring.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O06",
+      "title": "Prove both bounds on the vertex cardinality",
+      "prerequisites": [
+        "O01"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.cardinal_triple_omega"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/VertexCardinality.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "O07",
+      "title": "Derive chromatic cardinality aleph-one",
+      "prerequisites": [
+        "O05",
+        "O06"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.aleph_one_le_color_cardinal",
+        "JSP092.chromaticCardinal_specker_omega"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Infinite/ChromaticCardinality.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "A01",
+      "title": "Choose a dyadic cover with logarithmic growth",
+      "prerequisites": [
+        "S01"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.dyadicDepth",
+        "JSP092.dyadicDepth_cover",
+        "JSP092.dyadicDepth_le_logb",
+        "JSP092.dyadicDepth_isBigO_log"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Asymptotic/DyadicCover.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "A02",
+      "title": "Prove the strict asymptotic inequality",
+      "prerequisites": [
+        "A01"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.eventually_dyadicDepth_lt_rpow",
+        "JSP092.exists_dyadicDepth_threshold",
+        "JSP092.independent_size_gt_rpow"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Asymptotic/PowerGap.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "I01",
+      "title": "Assemble near-linear independence for finite sets",
+      "prerequisites": [
+        "F07",
+        "A02"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.eventually_nearLinear_finite"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/NearLinearFinite.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "I02",
+      "title": "Match the exact Formal Conjectures proposition",
+      "prerequisites": [
+        "I01",
+        "O07"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [
+        "JSP092.erdos75_near_linear"
+      ],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "proof",
+      "actual_outputs": [
+        "JSP092/Main.lean",
+        "JSP092.lean"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "V01",
+      "title": "Independently audit meaning, assumptions and reproducibility",
+      "prerequisites": [
+        "I02"
+      ],
+      "status": "VERIFIED",
+      "verified_declarations": [],
+      "validation_evidence": [
+        {
+          "command": "sh scripts/verify.sh --clean",
+          "cwd": "project root",
+          "exit_code": 0,
+          "build": "docs/evidence/build-clean.txt",
+          "axiom_and_type_reports": "docs/evidence/axioms.txt",
+          "review": "docs/final-verification.md"
+        }
+      ],
+      "kind": "verification",
+      "actual_outputs": [
+        "Checks/Audit.lean",
+        "Checks/FiniteEdgeCases.lean",
+        "scripts/verify.sh",
+        "docs/final-verification.md"
+      ],
+      "blockers": []
+    }
+  ],
+  "completed": "2026-09-16",
+  "project": "jsp092",
+  "branch": "codex/jsp-000092",
+  "stopping_point": "V01",
+  "prompt_pack": {
+    "description": "Development-only 22-task prompt pack",
+    "included": false,
+    "required_for_verification": false
+  },
+  "verification": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "formal_conjectures": "40e7c98697de6f66b8cbdbf641749ab39ed9c152",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "exact_target_transcription": "Checks/Audit.lean",
+    "source_conjecture_imported": false,
+    "clean_scope": "project .lake/build removed; upstream caches retained",
+    "independent_review": "PASS",
+    "review_provenance": "Internal semantic reviews by separate AI agents; no external human or prize-committee review is claimed."
+  }
+}

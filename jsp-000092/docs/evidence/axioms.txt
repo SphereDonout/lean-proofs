@@ -1,0 +1,79 @@
+Unknown identifier `Erdos75.erdos_75`
+JSP092.erdos75_near_linear :
+  ∃ V G,
+    G.chromaticCardinal = ℵ_ 1 ∧
+      #V = ℵ_ 1 ∧
+        ∀ ε > 0,
+          ∀ᶠ (n : ℕ) in Filter.atTop,
+            ∀ (H : G.Subgraph), H.verts.ncard = n → ∃ I, ↑I ⊆ H.verts ∧ G.IsIndepSet ↑I ∧ ↑I.card > ↑n ^ (1 - ε)
+JSP092.dyadicColoring (k : ℕ) : (JSP092.speckerGraph (Fin (2 ^ k))).Coloring (Fin k × Bool)
+JSP092.finite_independent_set.{u} {α : Type u} [LinearOrder α] (W : Finset (JSP092.Triple α)) (k : ℕ)
+  (hcover : 3 * W.card ≤ 2 ^ k) : ∃ I ⊆ W, (JSP092.speckerGraph α).IsIndepSet ↑I ∧ W.card ≤ 2 * k * I.card
+JSP092.omega_sequence_bounded (f : ℕ → JSP092.Omega) : ∃ b, ∀ (i : ℕ), f i ≤ b
+JSP092.exists_monochromatic_edge (c : JSP092.Triple JSP092.Omega → ℕ) :
+  ∃ x y, (JSP092.speckerGraph JSP092.Omega).Adj x y ∧ c x = c y
+JSP092.cardinal_triple_omega : #(JSP092.Triple JSP092.Omega) = ℵ_ 1
+JSP092.chromaticCardinal_specker_omega : (JSP092.speckerGraph JSP092.Omega).chromaticCardinal = ℵ_ 1
+JSP092.exists_dyadicDepth_threshold {ε : ℝ} (hε : 0 < ε) :
+  ∃ N, ∀ (n : ℕ), N ≤ n → 0 < n ∧ 2 * ↑(JSP092.dyadicDepth n) < ↑n ^ ε
+JSP092.Triple.map_adj.{u, v} {α : Type u} {β : Type v} [LinearOrder α] [LinearOrder β] (f : α → β) (hf : StrictMono f)
+  {x y : JSP092.Triple α} (h : (JSP092.speckerGraph α).Adj x y) :
+  (JSP092.speckerGraph β).Adj (JSP092.Triple.map f hf x) (JSP092.Triple.map f hf y)
+'JSP092.Triple.map_adj' depends on axioms: [propext]
+JSP092.crossLeft_not_adj.{u} {α : Type u} [LinearOrder α] {x y : JSP092.Triple α} {t : α} (hx : x.b < t ∧ t ≤ x.c)
+  (hy : y.b < t ∧ t ≤ y.c) : ¬(JSP092.speckerGraph α).Adj x y
+'JSP092.crossLeft_not_adj' depends on axioms: [propext]
+JSP092.crossRight_not_adj.{u} {α : Type u} [LinearOrder α] {x y : JSP092.Triple α} {t : α} (hx : x.a < t ∧ t ≤ x.b)
+  (hy : y.a < t ∧ t ≤ y.b) : ¬(JSP092.speckerGraph α).Adj x y
+'JSP092.crossRight_not_adj' depends on axioms: [propext]
+JSP092.lowerTriple_adj {m n : ℕ} {x y : JSP092.Triple (Fin m)} (hx : ↑x.c < n) (hy : ↑y.c < n)
+  (h : (JSP092.speckerGraph (Fin m)).Adj x y) :
+  (JSP092.speckerGraph (Fin n)).Adj (JSP092.lowerTriple x hx) (JSP092.lowerTriple y hy)
+'JSP092.lowerTriple_adj' depends on axioms: [propext, Quot.sound]
+JSP092.upperTriple_adj {m n : ℕ} (hm : m = n + n) {x y : JSP092.Triple (Fin m)} (hx : n ≤ ↑x.a) (hy : n ≤ ↑y.a)
+  (h : (JSP092.speckerGraph (Fin m)).Adj x y) :
+  (JSP092.speckerGraph (Fin n)).Adj (JSP092.upperTriple hm x hx) (JSP092.upperTriple hm y hy)
+'JSP092.upperTriple_adj' depends on axioms: [propext, Quot.sound]
+'JSP092.dyadicColoring' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.coordinateSupport_card_le.{u} {α : Type u} [LinearOrder α] (W : Finset (JSP092.Triple α)) :
+  (JSP092.coordinateSupport W).card ≤ 3 * W.card
+'JSP092.coordinateSupport_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.rankedTriple_adj.{u} {α : Type u} [LinearOrder α] {W : Finset (JSP092.Triple α)} {x y : ↥W}
+  (h : (JSP092.speckerGraph α).Adj ↑x ↑y) :
+  (JSP092.speckerGraph (Fin (JSP092.coordinateSupport W).card)).Adj (JSP092.rankedTriple W x) (JSP092.rankedTriple W y)
+'JSP092.rankedTriple_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.independent_fiber_card_bound.{u, v} {V : Type u} {C : Type v} (G : SimpleGraph V) (W : Finset V) [Fintype C]
+  (coloring : (SimpleGraph.induce (↑W) G).Coloring C) : ∃ I ⊆ W, G.IsIndepSet ↑I ∧ W.card ≤ Fintype.card C * I.card
+'JSP092.independent_fiber_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.finite_independent_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.cardinal_omega : #JSP092.Omega = ℵ_ 1
+'JSP092.cardinal_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.omega_sequence_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.exists_unboundedAbove_of_countable_cover.{u} {α : Type u} [LinearOrder α]
+  (sequence_bounded : ∀ (f : ℕ → α), ∃ b, ∀ (i : ℕ), f i ≤ b) {S : Set α} {T : ℕ → Set α} (hS : JSP092.UnboundedAbove S)
+  (hcover : ∀ a ∈ S, ∃ i, a ∈ T i) : ∃ i, JSP092.UnboundedAbove (T i)
+'JSP092.exists_unboundedAbove_of_countable_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.exists_unbounded_firstFiber (c : JSP092.Triple JSP092.Omega → ℕ) :
+  ∃ i, JSP092.UnboundedAbove (JSP092.firstFiber c i)
+'JSP092.exists_unbounded_firstFiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.exists_monochromatic_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.no_nat_coloring : IsEmpty ((JSP092.speckerGraph JSP092.Omega).Coloring ℕ)
+'JSP092.no_nat_coloring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.cardinal_triple_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.chromaticCardinal_specker_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.dyadicDepth_cover (n : ℕ) : 3 * n ≤ 2 ^ JSP092.dyadicDepth n
+'JSP092.dyadicDepth_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.dyadicDepth_le_logb (n : ℕ) : ↑(JSP092.dyadicDepth n) ≤ Real.logb 2 (3 * ↑n) + 1
+'JSP092.dyadicDepth_le_logb' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.dyadicDepth_isBigO_log : (fun n => ↑(JSP092.dyadicDepth n)) =O[Filter.atTop] fun n => Real.log ↑n
+'JSP092.dyadicDepth_isBigO_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.exists_dyadicDepth_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.independent_size_gt_rpow {n k m : ℕ} {ε : ℝ} (hn : 0 < n) (hk : 0 < k) (hcard : n ≤ 2 * k * m)
+  (hgap : 2 * ↑k < ↑n ^ ε) : ↑n ^ (1 - ε) < ↑m
+'JSP092.independent_size_gt_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+JSP092.eventually_nearLinear_finite.{u} {α : Type u} [LinearOrder α] {ε : ℝ} (hε : 0 < ε) :
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ∀ (W : Finset (JSP092.Triple α)),
+      W.card = n → ∃ I ⊆ W, (JSP092.speckerGraph α).IsIndepSet ↑I ∧ ↑n ^ (1 - ε) < ↑I.card
+'JSP092.eventually_nearLinear_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.erdos75_near_linear' depends on axioms: [propext, Classical.choice, Quot.sound]

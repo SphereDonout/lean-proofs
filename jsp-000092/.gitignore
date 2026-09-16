@@ -1,0 +1,9 @@
+.lake
+.tools
+Scratch/
+*.olean
+*.ilean
+*.trace
+*.o
+.DS_Store
+audit-output.txt

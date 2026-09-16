@@ -1,0 +1,5 @@
+'JSP092.dyadicColoring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.coordinateSupport_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.rankedTriple_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.independent_fiber_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP092.finite_independent_set' depends on axioms: [propext, Classical.choice, Quot.sound]

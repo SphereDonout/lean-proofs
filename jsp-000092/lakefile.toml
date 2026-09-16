@@ -1,0 +1,20 @@
+name = "jsp092"
+defaultTargets = ["JSP092"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+warn.sorry = true
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[require]]
+name = "formal_conjectures"
+git = "https://github.com/google-deepmind/formal-conjectures"
+rev = "40e7c98697de6f66b8cbdbf641749ab39ed9c152"
+
+[[lean_lib]]
+name = "JSP092"
