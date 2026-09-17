@@ -7,6 +7,7 @@ Reproducible Lean projects, each with its own toolchain and dependency lockfile.
 | [jsp-000092](jsp-000092/) | The near-linear Erdős 75 / JSP-000092 theorem | [Build instructions](jsp-000092/README.md), [verification report](jsp-000092/docs/final-verification.md) |
 | [jsp-000924](jsp-000924/) | The known Izotov fourth-power Sierpiński construction | [Build instructions](jsp-000924/README.md), [verification report](jsp-000924/docs/final-verification.md) |
 | [jsp-000737](jsp-000737/) | The known Erdős–Rosenfeld general-C fourth-root divisor bound (partial result for Erdős 886) | [Build instructions](jsp-000737/README.md), [verification report](jsp-000737/docs/verification-report.md) |
+| [jsp-000233](jsp-000233/) | Szabó's AP-intersection construction and lower bound (partial result for JSP-000233) | [Build instructions](jsp-000233/README.md), [verification report](jsp-000233/docs/verification-report.md) |
 
 ## Verify JSP-000092
 
@@ -50,3 +51,15 @@ python3 scripts/verify.py
 ```
 
 The project supplies all proof and check modules, a complete dependency lock, and verification scripts. The result is the known bound of 1+C² divisors in the closed interval from √n to √n+C n^(1/4). The full JSP-000737 / Erdős 886 question remains open; see the [scope comparison](jsp-000737/docs/scope-audit.md).
+
+## Verify JSP-000233
+
+With Elan, Git, and Python 3 installed:
+
+```sh
+cd lean-proofs/jsp-000233
+lake exe cache get
+sh scripts/verify.sh fresh
+```
+
+This proof constructs Szabó's family of size `choose(N,2) + 1 + floor((N-1)/4)` for every `N ≥ 1`. It proves a known lower bound; the exact maximum asked by JSP-000233 remains open. See the [statement contract](jsp-000233/docs/statement-contract.md) for the precise scope.

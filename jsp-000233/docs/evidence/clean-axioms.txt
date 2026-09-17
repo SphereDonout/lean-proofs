@@ -1,0 +1,8 @@
+'JSP233.prog_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP233.szaboFamily_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP233.triple_subfive_good_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP233.addedAt_inter_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP233.base_added_inter_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP233.szabo_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JSP233.szabo_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Checks.statement_check' depends on axioms: [propext, Classical.choice, Quot.sound]

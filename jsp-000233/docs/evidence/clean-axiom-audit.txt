@@ -1,0 +1,9 @@
+PASS: JSP233.prog_ap: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: JSP233.szaboFamily_card: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: JSP233.triple_subfive_good_ap: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: JSP233.addedAt_inter_ap: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: JSP233.base_added_inter_ap: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: JSP233.szabo_family: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: JSP233.szabo_lower_bound: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: Checks.statement_check: ['Classical.choice', 'Quot.sound', 'propext']
+PASS: 8 complete reports use only accepted foundations

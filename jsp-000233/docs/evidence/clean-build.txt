@@ -1,0 +1,44 @@
+✔ [8909/8921] Built JSP233.Progression (3.2s)
+✔ [8910/8921] Built JSP233.Family (3.3s)
+✔ [8911/8921] Built JSP233.WindowAP (3.4s)
+✔ [8912/8921] Built JSP233.Counting (3.5s)
+✔ [8913/8921] Built JSP233.Intersect (4.8s)
+✔ [8914/8921] Built JSP233.Main (3.7s)
+✔ [8915/8921] Built JSP233 (3.2s)
+✔ [8917/8921] Built Checks.Statement (4.5s)
+✔ [8918/8921] Built Checks.Boundaries (5.0s)
+ℹ [8919/8921] Built Checks.Semantics (4.4s)
+info: Checks/Semantics.lean:11:0: def Erdos272.IsArithInterSet : ℕ → Finset (Finset ℕ) → Prop :=
+fun N A => A ⊆ (Finset.Icc 1 N).powerset ∧ (↑A).Pairwise fun S T => ∃ l > 0, (↑(S ∩ T)).IsAPOfLength l
+info: Checks/Semantics.lean:12:0: def Erdos272.maxArithInterCard : ℕ → ℕ :=
+fun N => sSup {x | ∃ A, ∃ (_ : Erdos272.IsArithInterSet N A), A.card = x}
+info: Checks/Semantics.lean:13:0: def Checks.PaperFamily : ℕ → Finset (Finset ℕ) → Prop :=
+fun N C => (∀ A ∈ C, A ⊆ Finset.Icc 1 N) ∧ ∀ A ∈ C, ∀ B ∈ C, A ≠ B → ∃ l, 0 < l ∧ (↑(A ∩ B)).IsAPOfLength l
+info: Checks/Semantics.lean:14:0: theorem JSP233.szabo_family : ∀ (N : ℕ),
+  1 ≤ N → ∃ C, Erdos272.IsArithInterSet N C ∧ C.card = N.choose 2 + 1 + (N - 1) / 4 :=
+fun N hN => Exists.intro (JSP233.szaboFamily N) ⟨JSP233.szabo_family_feasible N hN, JSP233.szaboFamily_card N hN⟩
+info: Checks/Semantics.lean:15:0: theorem JSP233.szabo_lower_bound : ∀ (N : ℕ), 1 ≤ N → N.choose 2 + 1 + (N - 1) / 4 ≤ Erdos272.maxArithInterCard N :=
+fun N hN =>
+  Exists.casesOn (JSP233.szabo_family N hN) fun C h =>
+    And.casesOn h fun hC hcard =>
+      have hbdd :=
+        Exists.intro (Finset.Icc 1 N).powerset.card fun ⦃v⦄ a =>
+          Exists.casesOn a fun A h => Exists.casesOn h fun hA h => h ▸ Finset.card_le_card hA.left;
+      have hmem := Exists.intro C (Exists.intro hC rfl);
+      Eq.mpr (id (congrArg (fun _a => _a ≤ Erdos272.maxArithInterCard N) (Eq.symm hcard))) (le_csSup hbdd hmem)
+info: Checks/Semantics.lean:16:0: theorem Checks.statement_check : ∀ (N : ℕ),
+  1 ≤ N → ∃ C, Checks.PaperFamily N C ∧ C.card = N.choose 2 + 1 + (N - 1) / 4 :=
+fun N hN =>
+  Exists.casesOn (JSP233.szabo_family N hN) fun C h =>
+    And.casesOn h fun hC hcard =>
+      Exists.intro C ⟨⟨fun A hA => Finset.mem_powerset.mp (hC.left hA), fun A hA B hB hne => hC.right hA hB hne⟩, hcard⟩
+ℹ [8920/8921] Built Checks.Axioms (4.4s)
+info: Checks/Axioms.lean:11:0: 'JSP233.prog_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:12:0: 'JSP233.szaboFamily_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:13:0: 'JSP233.triple_subfive_good_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:14:0: 'JSP233.addedAt_inter_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:15:0: 'JSP233.base_added_inter_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:16:0: 'JSP233.szabo_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:17:0: 'JSP233.szabo_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Checks/Axioms.lean:18:0: 'Checks.statement_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8921 jobs).

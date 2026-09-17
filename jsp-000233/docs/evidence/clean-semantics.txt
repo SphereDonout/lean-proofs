@@ -1,0 +1,24 @@
+def Erdos272.IsArithInterSet : ℕ → Finset (Finset ℕ) → Prop :=
+fun N A => A ⊆ (Finset.Icc 1 N).powerset ∧ (↑A).Pairwise fun S T => ∃ l > 0, (↑(S ∩ T)).IsAPOfLength l
+def Erdos272.maxArithInterCard : ℕ → ℕ :=
+fun N => sSup {x | ∃ A, ∃ (_ : Erdos272.IsArithInterSet N A), A.card = x}
+def Checks.PaperFamily : ℕ → Finset (Finset ℕ) → Prop :=
+fun N C => (∀ A ∈ C, A ⊆ Finset.Icc 1 N) ∧ ∀ A ∈ C, ∀ B ∈ C, A ≠ B → ∃ l, 0 < l ∧ (↑(A ∩ B)).IsAPOfLength l
+theorem JSP233.szabo_family : ∀ (N : ℕ),
+  1 ≤ N → ∃ C, Erdos272.IsArithInterSet N C ∧ C.card = N.choose 2 + 1 + (N - 1) / 4 :=
+fun N hN => Exists.intro (JSP233.szaboFamily N) ⟨JSP233.szabo_family_feasible N hN, JSP233.szaboFamily_card N hN⟩
+theorem JSP233.szabo_lower_bound : ∀ (N : ℕ), 1 ≤ N → N.choose 2 + 1 + (N - 1) / 4 ≤ Erdos272.maxArithInterCard N :=
+fun N hN =>
+  Exists.casesOn (JSP233.szabo_family N hN) fun C h =>
+    And.casesOn h fun hC hcard =>
+      have hbdd :=
+        Exists.intro (Finset.Icc 1 N).powerset.card fun ⦃v⦄ a =>
+          Exists.casesOn a fun A h => Exists.casesOn h fun hA h => h ▸ Finset.card_le_card hA.left;
+      have hmem := Exists.intro C (Exists.intro hC rfl);
+      Eq.mpr (id (congrArg (fun _a => _a ≤ Erdos272.maxArithInterCard N) (Eq.symm hcard))) (le_csSup hbdd hmem)
+theorem Checks.statement_check : ∀ (N : ℕ),
+  1 ≤ N → ∃ C, Checks.PaperFamily N C ∧ C.card = N.choose 2 + 1 + (N - 1) / 4 :=
+fun N hN =>
+  Exists.casesOn (JSP233.szabo_family N hN) fun C h =>
+    And.casesOn h fun hC hcard =>
+      Exists.intro C ⟨⟨fun A hA => Finset.mem_powerset.mp (hC.left hA), fun A hA B hB hne => hC.right hA hB hne⟩, hcard⟩
