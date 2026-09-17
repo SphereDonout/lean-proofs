@@ -1,0 +1,91 @@
+{
+  "started_utc": "2026-09-17T03:42:21.308516+00:00",
+  "result": "PASS",
+  "commands": [
+    {
+      "command": "python3 scripts/check_dependencies.py",
+      "exit_code": 0,
+      "log": "docs/evidence/dependency-integrity.txt"
+    },
+    {
+      "command": "lake env lean --version",
+      "exit_code": 0,
+      "log": "docs/evidence/lean-version.txt"
+    },
+    {
+      "command": "lake --version",
+      "exit_code": 0,
+      "log": "docs/evidence/lake-version.txt"
+    },
+    {
+      "command": "lake --wfail build JSP737 Checks JSP737.Basic JSP737.FactorSum JSP737.IntervalCount JSP737.Main JSP737.RealBounds Checks.Axioms Checks.Boundaries Checks.Exports Checks.Statement",
+      "exit_code": 0,
+      "log": "docs/evidence/initial-build.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Statement.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/initial-statement-check.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Boundaries.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/initial-boundary-check.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Exports.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/initial-exported-types.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Axioms.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/initial-axioms.txt"
+    },
+    {
+      "command": "python3 scripts/check_axioms.py --expected Checks/axiom-targets.txt --log docs/evidence/initial-axioms.txt",
+      "exit_code": 0,
+      "log": "docs/evidence/initial-axiom-policy.txt"
+    },
+    {
+      "command": "lake --wfail build JSP737 Checks JSP737.Basic JSP737.FactorSum JSP737.IntervalCount JSP737.Main JSP737.RealBounds Checks.Axioms Checks.Boundaries Checks.Exports Checks.Statement",
+      "exit_code": 0,
+      "log": "docs/evidence/build.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Statement.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/statement-check.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Boundaries.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/boundary-check.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Exports.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/exported-types.txt"
+    },
+    {
+      "command": "lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false -Dwarn.sorry=true -DwarningAsError=true Checks/Axioms.lean",
+      "exit_code": 0,
+      "log": "docs/evidence/axioms.txt"
+    },
+    {
+      "command": "python3 scripts/check_axioms.py --expected Checks/axiom-targets.txt --log docs/evidence/axioms.txt",
+      "exit_code": 0,
+      "log": "docs/evidence/axiom-policy.txt"
+    },
+    {
+      "command": "python3 scripts/check_dependencies.py",
+      "exit_code": 0,
+      "log": "docs/evidence/dependency-integrity-after.txt"
+    }
+  ],
+  "clean_project_rebuild": true,
+  "retained": "Locked dependency source/build caches and selected Lean toolchain",
+  "limits": "Dependency caches are retained; this is not a fresh dependency rebuild or a separate proof checker",
+  "source_inventory_sha256": "ada2035d34aab4da1a0fd9896c207c4d28a22897b198ae4471b2dc60483d3412",
+  "finished_utc": "2026-09-17T03:42:58.718076+00:00"
+}

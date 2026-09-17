@@ -1,0 +1,80 @@
+def JSP737.nearDivisors : ℕ → ℝ → Finset.{0} ℕ :=
+fun n C => {d ∈ n.divisors | LE.le.{0} √↑n ↑d ∧ LE.le.{0} (↑d) (HAdd.hAdd.{0, 0, 0} (√↑n) (HMul.hMul.{0, 0, 0} C √√↑n))}
+def JSP737.factorSum : ℕ → ℕ → ℕ :=
+fun n d => HAdd.hAdd.{0, 0, 0} d (HDiv.hDiv.{0, 0, 0} n d)
+JSP737.nat_card_le_interval (s : Finset.{0} ℕ) (a b : ℝ) (hab : LE.le.{0} a b)
+  (hmem : ∀ (k : ℕ), Membership.mem.{0, 0} s k → LE.le.{0} a ↑k ∧ LE.le.{0} (↑k) b) :
+  LE.le.{0} (↑(Finset.card.{0} s)) (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} b a) 1)
+JSP737.factor_sum_bounds (s t C d q : ℝ) (hs : LT.lt.{0} 0 s) (ht : LE.le.{0} 0 t)
+  (htsq : Eq.{1} (HPow.hPow.{0, 0, 0} t 2) s) (hC : LE.le.{0} 0 C) (hd : LE.le.{0} s d)
+  (hdu : LE.le.{0} d (HAdd.hAdd.{0, 0, 0} s (HMul.hMul.{0, 0, 0} C t)))
+  (hprod : Eq.{1} (HMul.hMul.{0, 0, 0} d q) (HPow.hPow.{0, 0, 0} s 2)) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} 2 s) (HAdd.hAdd.{0, 0, 0} d q) ∧
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} d q) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 s) (HPow.hPow.{0, 0, 0} C 2))
+JSP737.upper_factor_unique (s d e q r : ℝ) (hs : LT.lt.{0} 0 s) (hd : LE.le.{0} s d) (he : LE.le.{0} s e)
+  (hp : Eq.{1} (HMul.hMul.{0, 0, 0} d q) (HPow.hPow.{0, 0, 0} s 2))
+  (hr : Eq.{1} (HMul.hMul.{0, 0, 0} e r) (HPow.hPow.{0, 0, 0} s 2))
+  (hsum : Eq.{1} (HAdd.hAdd.{0, 0, 0} d q) (HAdd.hAdd.{0, 0, 0} e r)) : Eq.{1} d e
+JSP737.divisor_product (n d : ℕ) (hd : Dvd.dvd.{0} d n) :
+  Eq.{1} (HMul.hMul.{0, 0, 0} ↑d ↑(HDiv.hDiv.{0, 0, 0} n d)) (HPow.hPow.{0, 0, 0} (√↑n) 2)
+JSP737.factorSum_mem_bounds (n d : ℕ) (C : ℝ) (hn : LT.lt.{0} 0 n) (hC : LE.le.{0} 0 C)
+  (hd : Membership.mem.{0, 0} (JSP737.nearDivisors n C) d) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} 2 √↑n) ↑(JSP737.factorSum n d) ∧
+    LE.le.{0} (↑(JSP737.factorSum n d)) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 √↑n) (HPow.hPow.{0, 0, 0} C 2))
+JSP737.factorSum_injective (n : ℕ) (C : ℝ) (hn : LT.lt.{0} 0 n) :
+  Set.InjOn.{0, 0} (JSP737.factorSum n) ↑(JSP737.nearDivisors n C)
+JSP737.nearDivisors_card_le (n : ℕ) (C : ℝ) (hC : LE.le.{0} 0 C) :
+  LE.le.{0} (↑(Finset.card.{0} (JSP737.nearDivisors n C))) (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} C 2))
+JSP737.fourth_root_eq_rpow (n : ℕ) : Eq.{1} (√√↑n) (HPow.hPow.{0, 0, 0} (↑n) (1 / 4))
+JSP737.nearDivisors_eq_rpow (n : ℕ) (C : ℝ) :
+  Eq.{1} (JSP737.nearDivisors n C)
+    ({d ∈ n.divisors |
+      LE.le.{0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2)) ↑d ∧
+        LE.le.{0} (↑d)
+          (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2))
+            (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (↑n) (1 / 4))))})
+JSP737.rosenfeld_bound_pointwise (n : ℕ) (C : ℝ) (hC : LE.le.{0} 0 C) :
+  LE.le.{0}
+    (↑(Finset.card.{0}
+        ({d ∈ n.divisors |
+          LE.le.{0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2)) ↑d ∧
+            LE.le.{0} (↑d)
+              (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2))
+                (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (↑n) (1 / 4))))})))
+    (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} C 2))
+JSP737.erdos_rosenfeld_bound (C : ℝ) :
+  GT.gt.{0} C 0 →
+    ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+      LE.le.{0}
+        (↑(Finset.card.{0}
+            ({d ∈ n.divisors |
+              LE.le.{0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2)) ↑d ∧
+                LE.le.{0} (↑d)
+                  (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2))
+                    (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (↑n) (1 / 4))))})))
+        (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} C 2))
+JSP737Checks.paper_statement (C : ℝ) :
+  LT.lt.{0} 0 C →
+    ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+      LE.le.{0}
+        (↑(Finset.card.{0}
+            ({d ∈ n.divisors |
+              LE.le.{0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2)) ↑d ∧
+                LE.le.{0} (↑d)
+                  (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2))
+                    (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (↑n) (1 / 4))))})))
+        (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} C 2))
+JSP737Checks.paper_pointwise (n : ℕ) (_hn : LE.le.{0} 1 n) (C : ℝ) (hC : LE.le.{0} 0 C) :
+  LE.le.{0}
+    (↑(Finset.card.{0}
+        ({d ∈ n.divisors |
+          LE.le.{0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2)) ↑d ∧
+            LE.le.{0} (↑d)
+              (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (1 / 2))
+                (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (↑n) (1 / 4))))})))
+    (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} C 2))
+JSP737Checks.zero_divisors (C : ℝ) : Eq.{1} (JSP737.nearDivisors 0 C) EmptyCollection.emptyCollection.{0}
+JSP737Checks.one_zero_width : Eq.{1} (JSP737.nearDivisors 1 0) (singleton.{0, 0} 1)
+JSP737Checks.square_endpoint (m : ℕ) (hm : LT.lt.{0} 0 m) :
+  Membership.mem.{0, 0} (JSP737.nearDivisors (HPow.hPow.{0, 0, 0} m 2) 0) m
+JSP737Checks.zero_width_card (n : ℕ) : LE.le.{0} (↑(Finset.card.{0} (JSP737.nearDivisors n 0))) 1

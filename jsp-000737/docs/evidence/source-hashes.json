@@ -1,0 +1,19 @@
+{
+  "Checks/Axioms.lean": "2465f3eb0c2dba60638d626161008b386f164122e6c3e89f655ff04f26716947",
+  "Checks/Boundaries.lean": "9c6233b118e7744e2187dbef4c7d08b9f9bbc2fc59e1308ca280686a2c693a0b",
+  "Checks/Exports.lean": "1e110618f18d333ecadf302527ba7d11216934ba53be36287514eb071c525ccc",
+  "Checks/Statement.lean": "3944a1c9e6776541fe8e38d3f3fde9ceaf281fb0db24efdda127583b404098b9",
+  "Checks/axiom-targets.txt": "57820229e9bbbd651306b654f50ffaa358a52146abf03f6c808e65c3a9235710",
+  "JSP737/Basic.lean": "4b2a4f155efd6642e6a23fc5d666bb286b50150616d613e92bf1552efab28f8d",
+  "JSP737/FactorSum.lean": "b3ab224936887cb7ae734fc571fcf66d120fd14f6f265297dc10b509d3cd6e32",
+  "JSP737/IntervalCount.lean": "cccc9d221da7c3c2e5d97cd85f5b14f45860f2973995171fe16738e65ea63587",
+  "JSP737/Main.lean": "06b2671b34612f8ca80d44c3bc6a4b82f15d31ce41f47acb17489972cc1b9c66",
+  "JSP737/RealBounds.lean": "05ba4a1016dc65b0bd52e84193d0675d020f44cb4193f0bed8c7a82d06c5bf0d",
+  "JSP737.lean": "54fef5cfe7e030e28d08a3252a21b9a7a7bfe6575170fad61fa390251bb9f71b",
+  "lake-manifest.json": "0ecd64f126fa0c92ce528ebfab8c942f23b8d66afeba7603cf3aa56772cd260c",
+  "lakefile.toml": "61a2a75bfa44104931a4568b801cd9627424a58f33a1fb342d9ee3610bca3f1e",
+  "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+  "scripts/check_axioms.py": "cc25981609b43389aea1fa2d863cd4172dddc7e8f292d35a4c26b9a9368f9b89",
+  "scripts/check_dependencies.py": "bc9b6336c86743221b89047481c503f8214ac2699fec8f64b0c5ed45c5f1fef7",
+  "scripts/verify.py": "83e564c844a8497d19bf1ca702ba2440fd21a7d9d28a40805324533b837afaa0"
+}

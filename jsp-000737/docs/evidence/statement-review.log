@@ -1,0 +1,7 @@
+Unknown identifier `Erdos886.erdos_886.variants.rosenfeld_bound`
+JSP737Checks.paper_statement (C : ℝ) :
+  0 < C →
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ↑{d ∈ n.divisors | ↑n ^ (1 / 2) ≤ ↑d ∧ ↑d ≤ ↑n ^ (1 / 2) + C * ↑n ^ (1 / 4)}.card ≤ 1 + C ^ 2
+JSP737Checks.paper_pointwise (n : ℕ) (_hn : 1 ≤ n) (C : ℝ) (hC : 0 ≤ C) :
+  ↑{d ∈ n.divisors | ↑n ^ (1 / 2) ≤ ↑d ∧ ↑d ≤ ↑n ^ (1 / 2) + C * ↑n ^ (1 / 4)}.card ≤ 1 + C ^ 2

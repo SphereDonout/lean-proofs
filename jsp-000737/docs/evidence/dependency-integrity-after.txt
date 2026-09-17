@@ -1,0 +1,100 @@
+{
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lakefile_sha256": "61a2a75bfa44104931a4568b801cd9627424a58f33a1fb342d9ee3610bca3f1e",
+  "manifest_sha256": "0ecd64f126fa0c92ce528ebfab8c942f23b8d66afeba7603cf3aa56772cd260c",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "origin": "https://github.com/leanprover-community/mathlib4",
+      "status": "clean",
+      "git_tree": "f18edc0401eb2459e5241329743eb8626fdff148",
+      "source_files_rehashed": 8855,
+      "source_inventory_sha256": "0d75219201e356f9cd56ee95c24b64b48dd44ca74a9ba627f7114bc97c9f487a",
+      "cached_modules_with_tracked_sources": 8322
+    },
+    {
+      "name": "plausible",
+      "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "origin": "https://github.com/leanprover-community/plausible",
+      "status": "clean",
+      "git_tree": "52fb5a4067538333f08d2c2c2ee9db16351a3508",
+      "source_files_rehashed": 31,
+      "source_inventory_sha256": "06e94acfcf253854b9f0846229467b367550d0ea9cd49a5c9ccb5d5533b1b1ac",
+      "cached_modules_with_tracked_sources": 13
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "origin": "https://github.com/leanprover-community/LeanSearchClient",
+      "status": "clean",
+      "git_tree": "6df26d76c14ef44d6b84a19df906d9116cfe3a50",
+      "source_files_rehashed": 11,
+      "source_inventory_sha256": "e41ddab9c3de5e002d0f7a353c48d14fc5d9338886baa94e45f6c387a1c39aa6",
+      "cached_modules_with_tracked_sources": 4
+    },
+    {
+      "name": "importGraph",
+      "revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "origin": "https://github.com/leanprover-community/import-graph",
+      "status": "clean",
+      "git_tree": "0330ba38791d120e992fd635f4198dd4f845f8d1",
+      "source_files_rehashed": 40,
+      "source_inventory_sha256": "919ac11435b242deab2086125325a5704246f2b34b34c3595723611da8769d8b",
+      "cached_modules_with_tracked_sources": 10
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "origin": "https://github.com/leanprover-community/ProofWidgets4",
+      "status": "clean",
+      "git_tree": "6848bab13b5769926e47be1c768b9c3cad3e0d41",
+      "source_files_rehashed": 48,
+      "source_inventory_sha256": "e2dc291341a9d5a1d96fda604b4c92596c77810fce0b46a4ebd0394888d485ac",
+      "cached_modules_with_tracked_sources": 13
+    },
+    {
+      "name": "aesop",
+      "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "origin": "https://github.com/leanprover-community/aesop",
+      "status": "clean",
+      "git_tree": "b2a7fa8f458d93951096c5c16da08fbfab393c85",
+      "source_files_rehashed": 253,
+      "source_inventory_sha256": "97f8c6f69bea3241e0a2f3128357efb71cb2f52ee0fab8f054d9de0121398e25",
+      "cached_modules_with_tracked_sources": 132
+    },
+    {
+      "name": "Qq",
+      "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "origin": "https://github.com/leanprover-community/quote4",
+      "status": "clean",
+      "git_tree": "1e857c2d945d9f5757b39cd2a2be1ed1ea94c82c",
+      "source_files_rehashed": 31,
+      "source_inventory_sha256": "012834ad05a1565eba50300bb486eb4620b62ad2c9537d24a67bfb4380a57cf5",
+      "cached_modules_with_tracked_sources": 14
+    },
+    {
+      "name": "batteries",
+      "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "origin": "https://github.com/leanprover-community/batteries",
+      "status": "clean",
+      "git_tree": "5a1de86f7997958aaffec998882c29006b688d1e",
+      "source_files_rehashed": 264,
+      "source_inventory_sha256": "8becae4bb1fb8d889daf6d266b1d0dc8bb09737876da7b0b7fe6971b25b20f4e",
+      "cached_modules_with_tracked_sources": 192
+    },
+    {
+      "name": "Cli",
+      "revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "origin": "https://github.com/leanprover/lean4-cli",
+      "status": "clean",
+      "git_tree": "34330f4c97f983d6b2dcb6d1de73941d76f0d336",
+      "source_files_rehashed": 8,
+      "source_inventory_sha256": "dc2a905d7e52b0bb6031aaeb3da81e263f7f12e6d4e18f73adfa8215f9c35ae6",
+      "cached_modules_with_tracked_sources": 0
+    }
+  ],
+  "total_sources_rehashed": 9541,
+  "cache_scope": "Retained dependency oleans matched to tracked source names; contents not rebuilt"
+}

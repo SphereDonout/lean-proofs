@@ -6,6 +6,7 @@ Reproducible Lean projects, each with its own toolchain and dependency lockfile.
 | --- | --- | --- |
 | [jsp-000092](jsp-000092/) | The near-linear Erdős 75 / JSP-000092 theorem | [Build instructions](jsp-000092/README.md), [verification report](jsp-000092/docs/final-verification.md) |
 | [jsp-000924](jsp-000924/) | The known Izotov fourth-power Sierpiński construction | [Build instructions](jsp-000924/README.md), [verification report](jsp-000924/docs/final-verification.md) |
+| [jsp-000737](jsp-000737/) | The known Erdős–Rosenfeld general-C fourth-root divisor bound (partial result for Erdős 886) | [Build instructions](jsp-000737/README.md), [verification report](jsp-000737/docs/verification-report.md) |
 
 ## Verify JSP-000092
 
@@ -36,3 +37,16 @@ sh scripts/verify.sh --clean
 ```
 
 This folder supplies its own proof sources, pinned dependencies and checks. Its local bootstrap currently supports arm64 macOS; the project README also documents use with an existing Elan installation. The result formalizes the known fourth-power family and makes no claim about absence of a finite prime cover.
+
+## Verify JSP-000737
+
+With Elan, Git and Python 3.9 or later installed:
+
+```sh
+cd lean-proofs/jsp-000737
+elan toolchain install leanprover/lean4:v4.33.1
+lake exe cache get
+python3 scripts/verify.py
+```
+
+The project supplies all proof and check modules, a complete dependency lock, and verification scripts. The result is the known bound of 1+C² divisors in the closed interval from √n to √n+C n^(1/4). The full JSP-000737 / Erdős 886 question remains open; see the [scope comparison](jsp-000737/docs/scope-audit.md).

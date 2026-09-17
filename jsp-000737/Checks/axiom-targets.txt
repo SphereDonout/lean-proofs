@@ -1,0 +1,17 @@
+JSP737.nat_card_le_interval
+JSP737.factor_sum_bounds
+JSP737.upper_factor_unique
+JSP737.divisor_product
+JSP737.factorSum_mem_bounds
+JSP737.factorSum_injective
+JSP737.nearDivisors_card_le
+JSP737.fourth_root_eq_rpow
+JSP737.nearDivisors_eq_rpow
+JSP737.rosenfeld_bound_pointwise
+JSP737.erdos_rosenfeld_bound
+JSP737Checks.paper_statement
+JSP737Checks.paper_pointwise
+JSP737Checks.zero_divisors
+JSP737Checks.one_zero_width
+JSP737Checks.square_endpoint
+JSP737Checks.zero_width_card
